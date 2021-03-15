@@ -7,6 +7,7 @@ def request_url(url):
     request_dict = request_json.json()
     return request_dict
 
+#Returns dict
 #Customizable coingecko_markets_api call
 def ping_api():
     url = 'https://api.coingecko.com/api/v3/ping'
@@ -14,7 +15,7 @@ def ping_api():
     return data
 
 
-
+#Returns dict
 #Retrieve global market stats
 def global_api():
     url = 'https://api.coingecko.com/api/v3/global'
@@ -27,13 +28,14 @@ def global_defi_api():
     return data
 
 
-
+#Returns list
 #Customizable coingecko_markets_api call
 def coins_list_api(include_platform='false'):
     url = 'https://api.coingecko.com/api/v3/coins/list?include_platform=' + include_platform
     data = request_url(url)
     return data
 
+#Returns list
 #Customizable coins/markets API call
 def coins_markets_api(vs_currency, category='', order='market_cap_desc', per_page='250', page='1', sparkline='false', price_change_percentage='24h'):
     #category = 'decentralized_finance_defi'
@@ -50,6 +52,7 @@ def coins_markets_api(vs_currency, category='', order='market_cap_desc', per_pag
     data = request_url(url)
     return data
 
+#Returns dict
 #Customizable coins/{id} API call
 def coins_id_api(id, localization='true', tickers='true', market_data='true', community_data='true', developer_data='true', sparkline='true'):
     url = ('https://api.coingecko.com/api/v3/coins/' + id +
@@ -63,6 +66,7 @@ def coins_id_api(id, localization='true', tickers='true', market_data='true', co
     data = request_url(url)
     return data
 
+#Returns dict
 #Customizable coins/{id}/history API call
 def coins_id_history_api(id, date, localization='true'):
     url = ('https://api.coingecko.com/api/v3/coins/' + id +
@@ -72,6 +76,7 @@ def coins_id_history_api(id, date, localization='true'):
     data = request_url(url)
     return data
 
+#Returns dict
 #Customizable coins/{id}/market_chart API call
 def coins_id_market_chart_api(id, vs_currency, days='1', interval='hourly'):
     url = ('https://api.coingecko.com/api/v3/coins/' + id +
@@ -82,6 +87,7 @@ def coins_id_market_chart_api(id, vs_currency, days='1', interval='hourly'):
     data = request_url(url)
     return data
 
+#Returns dict
 #Customizable coins/{id}/market_chart/range API call
 def coins_id_market_chart_range_api(id, vs_currency, from_unix, to_unix):
     url = ('https://api.coingecko.com/api/v3/coins/' + id +
@@ -94,7 +100,7 @@ def coins_id_market_chart_range_api(id, vs_currency, from_unix, to_unix):
 
 
 
-
+#Returns list
 def exchanges_api(per_page='100', page='1'):
     url = ('https://api.coingecko.com/api/v3/exchanges?per_page=' + per_page +
            '&page=' + page)
@@ -102,11 +108,13 @@ def exchanges_api(per_page='100', page='1'):
     data = request_url(url)
     return data
 
+#Returns dict
 def exchanges_id_api(id):
     url = 'https://api.coingecko.com/api/v3/exchanges/' + id
     data = request_url(url)
     return data
 
+#Returns list of lists(unix time, volume)
 def exchanges_id_volume_chart_api(id, days='1'):
     url = ('https://api.coingecko.com/api/v3/exchanges/' + id +
            '/volume_chart?days=' + days)
@@ -115,14 +123,14 @@ def exchanges_id_volume_chart_api(id, days='1'):
     return data
 
 
-
+#Returns dict
 #Return BTC to fiat exchange rates
 def exchange_rates_api():
     url = 'https://api.coingecko.com/api/v3/exchange_rates'
     data = request_url(url)
     return data
 
-
+#Returns dict
 #Retrieve Top 7 trending coins on CoinGecko
 def search_trending_api():
     url = 'https://api.coingecko.com/api/v3/search/trending'
